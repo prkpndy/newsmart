@@ -1,0 +1,21 @@
+{
+  "name": "Newsmart",
+  "version": "1.0.0",
+  "description": "Improve your news reading experience",
+  "manifest_version": 3,
+  "author": "Prakhar Pandey",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Newsmart"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://theprint.in/"],
+      "js": ["mainPage.js"]
+    },
+    {
+      "matches": ["https://theprint.in/*"],
+      "js": ["articlePage.js"]
+    }
+  ]
+}
