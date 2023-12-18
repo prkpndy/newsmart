@@ -1,3 +1,4 @@
+console.log("---> Running mainPage.js");
 const url = "https://newsmartbackend-production.up.railway.app";
 
 var majorHeadlinesDiv = document.getElementById("tdi_66");
@@ -22,6 +23,7 @@ links.forEach((link, i) => {
       })
       .then((html) => {
         // Getting the article
+        console.log("---> Getting the article");
         var parser = new DOMParser();
 
         var page = parser.parseFromString(html, "text/html");
@@ -63,6 +65,7 @@ links.forEach((link, i) => {
         articles[i] = s;
 
         // Sending a request to backend api
+        console.log("---> Sending request to backend");
         fetch(`${url}/api/v1/postData`, {
           method: "POST",
           headers: {
@@ -78,17 +81,17 @@ links.forEach((link, i) => {
             return response.json();
           })
           .then((data) => {
-            console.log(`Received data for ${link}`);
+            console.log(`---> Received data for ${link}`);
             if (data.rhyme) {
               majorHeadlinesHtml[i].children[0].innerText = data.rhyme;
             }
           })
           .catch((error) => {
-            console.log(`Failed to get data from API for ${link}`, error);
+            console.log(`---> Failed to get data from API for ${link}`, error);
           });
       })
       .catch(function (error) {
-        console.log(`Failed to fetch page: ${link}`, error);
+        console.log(`---> Failed to fetch page: ${link}`, error);
       });
   }
 });

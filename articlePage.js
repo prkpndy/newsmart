@@ -1,3 +1,4 @@
+console.log("---> Running articlePage.js");
 const url = "https://newsmartbackend-production.up.railway.app";
 
 const addBias = async () => {
@@ -24,7 +25,7 @@ const addBias = async () => {
 
     subHeadlineDiv[0].insertAdjacentHTML("beforeend", htmlToAdd);
   } catch (error) {
-    console.log(error);
+    console.log("---> Failed to get data", error);
   }
 };
 

@@ -10,11 +10,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://theprint.in/"],
+      "matches": ["https://theprint.in/", "https://theprint.in/?*"],
       "js": ["mainPage.js"]
     },
     {
       "matches": ["https://theprint.in/*"],
+      "exclude_matches": ["https://theprint.in/", "https://theprint.in/?*"],
       "js": ["articlePage.js"]
     }
   ]
